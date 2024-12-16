@@ -1,0 +1,58 @@
+---
+title: "Assignment_1"
+author: "Sakkyra King"
+duedate: "9/22/24"
+output: word_document
+---
+
+## 1
+```{r}
+library('dplyr')
+fortune <- read.csv("Fortune500_2019.csv")
+
+head(fortune)
+
+
+dim(fortune)
+colnames(fortune)
+summary(fortune)
+str(fortune)
+
+
+maxrev <- max(fortune$Revenue)
+minrev <- min(fortune$Revenue)
+maxrev
+minrev
+maxemploy <- max(fortune$EmployeeCount)
+minemploy <- min(fortune$EmployeeCount)
+maxemploy
+minemploy
+
+
+maxrev_company <- fortune$Company[which(fortune$Revenue == max(fortune$Revenue))]
+minrev_company <- fortune$Company[which(fortune$Revenue == min(fortune$Revenue))]
+maxrev_company
+minrev_company
+
+maxemploy_company <- fortune$Company[which(fortune$EmployeeCount == max(fortune$EmployeeCount))]
+minemploy_company <- fortune$Company[which(fortune$EmployeeCount == min(fortune$EmployeeCount))]
+maxemploy_company
+minemploy_company
+
+topten <- filter(fortune, fortune$Rank <= 10)
+topten
+bottomten <- filter(fortune, fortune$Rank >= 490 & fortune$Rank <= 500)
+bottomten
+
+
+
+```
+
+
+After running functions and filtering through the data, I discover aspects such as the dimensions of the data frame, the name of the columns, a summary of each column, and a correlation between companies employees and their revenue along with the top 10 and bottom 10 of the fortune 500 in 2019. The Fortune500_2019.csv  data frame has been named fortune for uploading and coding purposes. Fortune has a dimension of 500 rows and 11 columns. These column names are Rank, Company, EmployeeCount, Revenue, Profits, Assets, MarketValue, Sector, Industry, Hqcity, and Hqstate. Respectively, the data types that are in these columns are int, chr, int, dbl, dbl, dbl, dbl, chr, dbl, dbl, chr, chr, chr and chr. This shows that a majority of the column data types are characters and doubles. Companies that contain numeric values can be used in the summary function to discover the minimum, maximum, median, mean, and quartiles. After selecting three columns with numeric values, we learn that the median and mean for EmployeeCount, Revenue, and Profits are; 24750 and 57370, 12890 and 27443, and 937.1 and 2273.3. I used filtering to compare the companies with the highest amount of employees and revenue versus the lowest amount of employees and revenue. After filtering the companies with the highest and lowest number of employees, I learned that Walmart had the most employees with 2200000 and A-Mark Precious Metals had the least with 184. Walmart also had the highest revenue with 514405 and Levi Strauss had the least with 5575.4. I want to see the correlation between a company's number of employees compared to revenue to see if there is a connection between an increase of employees leading to an increase in revenue and vice versa. With comparing these two categories on a small scale, I can see that the Walmart has a correlation when it comes to employees and revenue but for the lowest number of employees and revenue do not correlate as the companies are A-Mark Precious Metals and Levi Strauss. This has shown me that my hypotheses is that incorrect when it comes to these two comparisons. I also decided to filter out the top 10 Fortune500 and the bottom 10 to see make this comparison. I saw that A-Mark Precious Metals has a higher revenue than the bottom 10 companies even though A-Mark has the fewest amount of employees, which is another way in which my hypothesis is incorrect. 
+
+
+
+
+
+
